@@ -36,7 +36,7 @@ public class Food {
     @JoinColumn(name = "store_id")
     private Store store;
 
-    public void addStore(Store store){
+    public void addStore(Store store) {
         this.store = store;
         store.getFoodList().add(this);
     }
