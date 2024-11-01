@@ -3,14 +3,17 @@ package com.example.even.service;
 import com.example.even.domain.Member;
 import com.example.even.dto.MemberRequestDto;
 import com.example.even.repository.MemberRepository;
+import java.beans.Transient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
 
@@ -53,7 +56,7 @@ public class MemberService {
         Optional<Member> member = memberRepository.findById(memberId);
         if(member.isPresent()) {
             Member member1 = member.get();
-            return member1.getOrders().size(); //주문 목록의 크기 반환
+            return member1.getOrderList().size(); //주문 목록의 크기 반환
         }
         return 0;
     }

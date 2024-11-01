@@ -1,13 +1,5 @@
 package com.example.even.domain;
 
-<<<<<<< HEAD
-import jakarta.persistence.*;
-import lombok.*;
-
-@Entity
-@NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
-=======
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +16,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
->>>>>>> 4e798fead049ab886d0310ad95d0179083781cd2
 @Getter
 @Builder
 public class Food {
