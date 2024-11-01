@@ -9,12 +9,24 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 
 import lombok.*;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
+=======
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+>>>>>>> 4e798fead049ab886d0310ad95d0179083781cd2
 @Getter
 @Builder
 public class Store {
@@ -23,7 +35,7 @@ public class Store {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long storeId;
 
-    private String name;
+    private String storeName;
 
     private Float latitude;
 
@@ -34,7 +46,7 @@ public class Store {
     private String storeImageUrl;
 
     @Builder.Default
-    private boolean multiUseContainerAvailable = false;
+    private boolean hasMultiUseContainer = false;       // t = 다회용기 제공 업체
 
     @Builder.Default
     private StoreCategory storeCategory = StoreCategory.NORMAL;
@@ -42,4 +54,5 @@ public class Store {
     @Builder.Default
     @OneToMany(mappedBy = "store", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Food> foodList = new ArrayList<>();
+
 }
