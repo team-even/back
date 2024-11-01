@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
@@ -44,5 +46,15 @@ public class MemberService {
         memberRepository.findById(member.getMemberId()).ifPresent(m -> {
             throw new IllegalStateException("이미 존재하는 아이디입니다.");
         });
+    }
+
+    //회원 별 주문 수
+    public int getOrderCount(Long memberId) {
+        Optional<Member> member = memberRepository.findById(memberId);
+        if(member.isPresent()) {
+            Member member1 = member.get();
+            return member1.getOrders().size(); //주문 목록의 크기 반환
+        }
+        return 0;
     }
 }

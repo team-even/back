@@ -5,6 +5,11 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.*;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +32,14 @@ public class Member {
 
     private String name;
 
+    private String password;
+
     private String phoneNumber;
 
     private String email;
 
-    private String password;
+
+    private Integer point;
 
     @Builder.Default
     private Integer point = 0;
@@ -80,4 +88,9 @@ public class Member {
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     @Builder.Default
     private List<Order> orderList = new ArrayList<>();
+
+    //주문 목록
+    public List<Order> getOrders(){
+        return orderList;
+    }
 }

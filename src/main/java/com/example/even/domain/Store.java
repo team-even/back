@@ -9,6 +9,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
+
+import lombok.*;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+=======
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,6 +26,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+>>>>>>> 4e798fead049ab886d0310ad95d0179083781cd2
 @Getter
 @Builder
 public class Store {
