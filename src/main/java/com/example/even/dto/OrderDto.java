@@ -28,6 +28,7 @@ public class OrderDto {
     public static class OrderHistory {
         private Long orderId;
         private String orderCategory;
+        private String storeName;
         private List<FoodInfoHistory> foodInfoHistoryList;
     }
 

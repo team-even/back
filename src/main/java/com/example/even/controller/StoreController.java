@@ -1,17 +1,22 @@
 package com.example.even.controller;
 
 import com.example.even.domain.Store;
-import com.example.even.domain.StoreCategory;
+import com.example.even.domain.StoreType;
+import com.example.even.dto.StoreDto;
 import com.example.even.dto.StoreDto.StoreGetRequest;
 import com.example.even.dto.StoreDto.StoreGetResponse;
+import com.example.even.dto.StoreDto.StoreResponse;
 import com.example.even.dto.StoreRequestDTO;
+import com.example.even.repository.StoreRepository;
 import com.example.even.service.StoreService;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -30,15 +35,22 @@ public class StoreController {
      * @return
      */
     @GetMapping("/stores")
-    public List<StoreGetResponse> getStoreList(StoreGetRequest storeGetRequest) {
+    public List<StoreGetResponse> getStoreList(@RequestBody StoreGetRequest storeGetRequest) {
         return storeService.getStoreList(storeGetRequest);
     }
 
+    // TODO: DTO 변환 시간이 부족행
+    @GetMapping("/stores/{storeId}")
+    public StoreResponse getStoreList(@PathVariable(name = "storeId") Long storeId) {
+        return storeService.getStoreOne(storeId);
+    }
+
+
     // 가게 유형별 불러오기
-    @GetMapping("/{storeCategory}")
+    @GetMapping("/category/{storeCategory}")
     public List<StoreRequestDTO.Store> getStoreListByStoreCategory(
-            @PathVariable(name = "storeCategory") StoreCategory storeCategory) {
-        List<Store> storeList = storeService.getStoreListByStoreCategory(storeCategory);
+            @PathVariable(name = "storeCategory") Integer storeType) {
+        List<Store> storeList = storeService.getStoreListByStoreCategory(storeType);
         return storeList.stream()
                 .map(store -> StoreRequestDTO.Store.builder()  // 빌더 패턴으로 객체 생성
                         .storeId(store.getStoreId())

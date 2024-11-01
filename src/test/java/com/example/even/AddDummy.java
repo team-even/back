@@ -34,30 +34,26 @@ public class AddDummy {
     @Transactional
     @Rollback(value = false)
     void 더미추가() {
-        Store store = storeRepository.save(Store.builder()
-                .storeName("가게이름입니다")
-                .detailInformation("가게 상세 설명입니다.")
-                .latitude(32.123123f)
-                .longitude(127.123123f)
-                .hasMultiUseContainer(true)
-                .storeImageUrl("http://store.png")
-                .build());
+        for (int j = 0; j < 10; j++) {
+            Store store = storeRepository.save(Store.builder()
+                    .storeName("가게" + j)
+                    .detailInformation("가게 상세 설명입니다.")
+                    .latitude(32.123123f)
+                    .longitude(127.123123f)
+                    .hasMultiUseContainer(true)
+                    .storeImageUrl("http://store.png")
+                    .build());
 
-        Food food1 = foodRepository.save(Food.builder()
-                .price(10000)
-                .discountRate(10.0f)
-                .foodName("음식 이름 1")
-                .foodImageUrl("http://food.png")
-                .build());
+            for (int i = 0; i < 5; i++) {
+                Food food = foodRepository.save(Food.builder()
+                        .price(10000 + i)
+                        .discountRate(10.0f)
+                        .foodName("음식 이름" + i)
+                        .foodImageUrl("http://food" + i + ".png")
+                        .build());
 
-        Food food2 = foodRepository.save(Food.builder()
-                .price(10000)
-                .discountRate(10.0f)
-                .foodName("음식 이름 1")
-                .foodImageUrl("http://food.png")
-                .build());
-
-        food1.addStore(store);
-        food2.addStore(store);
+                food.addStore(store);
+            }
+        }
     }
 }

@@ -36,6 +36,10 @@ public class Order {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id")
+    private Store store;
+
     @OneToMany
     @Builder.Default
     private List<OrderFood> orderFoodList = new ArrayList<>();
