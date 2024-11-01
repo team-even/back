@@ -1,14 +1,24 @@
 package com.example.even.domain;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Getter
+@Builder
 public class OrderFood {
 
     @Id
@@ -16,13 +26,9 @@ public class OrderFood {
     private Long orderFoodId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-<<<<<<< HEAD
-    @JoinColumn(name = "orders_id")
-    private Orders orders;
-=======
+
     @JoinColumn(name = "order_id")
     private Order order;
->>>>>>> 4e798fead049ab886d0310ad95d0179083781cd2
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "food_id")

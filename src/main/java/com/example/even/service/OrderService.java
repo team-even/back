@@ -28,7 +28,7 @@ public class OrderService {
     private final OrderFoodRepository orderFoodRepository;
 
     @Transactional
-    public void createOrder(OrderRequest dto) {
+    public void createOrder(OrderRequest dto) throws Exception {
         Member member = memberRepository.safeFindById(dto.getMemberId());
         Store store = storeRepository.safeFindById(dto.getStoreId());
         List<Food> foodList = store.getFoodList();
@@ -59,7 +59,7 @@ public class OrderService {
      * @param memberId
      */
     @Transactional
-    public List<OrderHistory> getOrderList(Long memberId) {
+    public List<OrderHistory> getOrderList(Long memberId) throws Exception {
         Member member = memberRepository.safeFindById(memberId);
         List<Order> orderList = member.getOrderList();
 

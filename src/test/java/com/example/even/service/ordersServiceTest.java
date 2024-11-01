@@ -49,7 +49,7 @@ class ordersServiceTest {
     // TODO: 테스트 분리
     @Test
     @Transactional
-    void 주문목록_생성_조회_테스트() {
+    void 주문목록_생성_조회_테스트() throws Exception {
         // given
         Member member = memberRepository.save(Member.builder()
                 .name("member")
