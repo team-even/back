@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
 
 java {
     toolchain {
@@ -39,4 +39,14 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+// Specify the main class for the bootJar task
+bootJar {
+    mainClass = 'com.example.even.EvenApplication'
+}
+
+// Disable the default jar task to avoid creating a -plain jar file
+tasks.jar {
+    enabled = false
 }

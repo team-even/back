@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 public class OrderDto {
 
@@ -13,6 +14,7 @@ public class OrderDto {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
+    @Setter
     public static class OrderRequest {
         private Long memberId;
         private Long storeId;
@@ -33,6 +35,7 @@ public class OrderDto {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
+    @Setter
     public static class FoodInfo {
         private Long foodId;
         private Integer quantity;
