@@ -1,5 +1,6 @@
 package com.example.even.service;
 
+
 import com.example.even.domain.Store;
 import com.example.even.domain.StoreCategory;
 import com.example.even.dto.StoreRequestDTO;
@@ -27,5 +28,20 @@ public class StoreService {
 
     public List<Store> getStoreList() {
         return storeRepository.findAll();
+
+
+
+   // private final StoreRepository storeRepository;
+
+//     public List<StoreGetResponse> getStoreList(StoreGetRequest storeGetRequest) {
+//         List<Store> storeList = storeRepository.findAll();
+
+//         List<StoreGetResponse> storeGetResponseList = new ArrayList<>();
+//         for (Store store : storeList) {
+//             StoreGetResponse storeGetResponse = CommonConverter.toStoreGetResponse(store);
+//             storeGetResponseList.add(storeGetResponse);
+//         }
+
+//         return storeGetResponseList;
     }
 }
