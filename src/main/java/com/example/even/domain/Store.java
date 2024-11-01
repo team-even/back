@@ -33,6 +33,8 @@ public class Store {
 
     private String storeImageUrl;
 
+
+
     @Builder.Default
     private boolean multiUseContainerAvailable = false;
 

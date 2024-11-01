@@ -1,8 +1,8 @@
 package com.example.even.service;
 
+import com.example.even.domain.Store;
 import com.example.even.domain.StoreCategory;
 import com.example.even.dto.StoreRequestDTO;
-import com.example.even.dto.StoreRequestDTO.store;
 import com.example.even.repository.StoreRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -12,13 +12,20 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class StoreServiceImpl {
+public class StoreService {
     private final StoreRepository storeRepository;
 
-    @Override
+//    @Transactional
+//    public List<Store> getStoreList(float lon, float lat) {
+//        return storeRepository.findAllByStoreCategory(storeCategory);
+//    }
+
     @Transactional
-    public List<StoreRequestDTO.store>  getStoreListByStoreCategory(StoreCategory storeCategory){
+    public List<Store> getStoreListByStoreCategory(StoreCategory storeCategory){
         return storeRepository.findAllByStoreCategory(storeCategory);
     }
 
+    public List<Store> getStoreList() {
+        return storeRepository.findAll();
+    }
 }

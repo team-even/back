@@ -27,4 +27,16 @@ public class MemberRequestDto {
         private String email;
         private String password;
     }
+
+    @Getter
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class mypage{
+        private String name;
+        private String email;
+        private String phoneNumber;
+        private Integer point;
+        private Integer exp;
+    }
 }

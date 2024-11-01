@@ -25,5 +25,9 @@ public class Member {
 
     private String password;
 
+    // 결제 관련
     private Integer point;
+
+    // 경험치
+    private Integer exp;
 }
