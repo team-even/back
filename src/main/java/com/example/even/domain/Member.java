@@ -5,13 +5,11 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-<<<<<<< HEAD
 import lombok.*;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-=======
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +23,6 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
->>>>>>> 4e798fead049ab886d0310ad95d0179083781cd2
 @Getter
 @Builder
 public class Member {
@@ -83,11 +80,13 @@ public class Member {
         this.email = email;
     }
 
-<<<<<<< HEAD
-=======
 
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     @Builder.Default
     private List<Order> orderList = new ArrayList<>();
->>>>>>> 4e798fead049ab886d0310ad95d0179083781cd2
+
+    //주문 목록
+    public List<Order> getOrders(){
+        return orderList;
+    }
 }
