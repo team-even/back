@@ -22,13 +22,26 @@ public class OrderController {
     @PostMapping("/order")
     public Map<String, Object> createOrder(@RequestBody OrderDto.OrderRequest orderDto) {
         Map<String, Object> map = new HashMap<>();
-        orderService.createOrder(orderDto);
-        map.put("result:", "성공적으로 주문이 완료되었습니다.");
+
+        try {
+            orderService.createOrder(orderDto);
+            map.put("result:", "성공적으로 주문이 완료되었습니다.");
+        } catch (Exception e) {
+            map.put("status:", "error - " + e.getMessage());
+        }
         return map;
     }
 
     @GetMapping("/orders")
-    public List<OrderHistory> getOrderList(Long memberId) {
-        return orderService.getOrderList(memberId);
+    public Map<String, Object> getOrderList(Long memberId) {
+        Map<String, Object> map = new HashMap<>();
+
+        try {
+            List<OrderHistory> orderHistoryList = orderService.getOrderList(memberId);
+            map.put("result:", orderHistoryList);
+        } catch (Exception e) {
+            map.put("status:", "error - " + e.getMessage());
+        }
+        return map;
     }
 }
