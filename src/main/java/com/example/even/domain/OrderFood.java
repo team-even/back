@@ -26,6 +26,7 @@ public class OrderFood {
     private Long orderFoodId;
 
     @ManyToOne(fetch = FetchType.LAZY)
+
     @JoinColumn(name = "order_id")
     private Order order;
 

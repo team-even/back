@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
+
     default Member safeFindById(Long memberId) throws Exception {
         return findById(memberId)
                 .orElseThrow(() -> new Exception("존재하지 않는 사용자입니다."));
@@ -16,8 +17,8 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
     Member findByEmail(String email);
 
-
     //회원가입 시 id로 사용자 정보 조회
     Optional<Member> findById(Long memberId);
+
     Optional<Member> findByName(String name);
 }
