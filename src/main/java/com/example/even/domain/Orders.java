@@ -7,9 +7,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @RequiredArgsConstructor
 public class Order {
 
