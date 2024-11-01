@@ -9,15 +9,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface StoreRepository extends JpaRepository<Store, Long> {
 
-    // 전체 가게 불러오기
-    List<Store> findAll();
-
-    // 유형별 가게 불러오기
-    List<Store> findAllByStoreCategory(@Param("storeCategory")StoreCategory storeCategory);
-
     @EntityGraph(attributePaths = {"foodList"})
     default Store safeFindById(Long storeId) {
         return findById(storeId).orElseThrow();
     }
-
 }
