@@ -36,6 +36,8 @@ public class Store {
 
     private String storeImageUrl;
 
+
+
     @Builder.Default
     private boolean hasMultiUseContainer = false;       // t = 다회용기 제공 업체
 

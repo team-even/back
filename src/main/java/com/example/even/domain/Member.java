@@ -32,9 +32,14 @@ public class Member {
 
     private String password;
 
+    // 결제 관련
     private Integer point;
 
+    // 경험치
+    private Integer exp;
+  
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     @Builder.Default
     private List<Order> orderList = new ArrayList<>();
+
 }
