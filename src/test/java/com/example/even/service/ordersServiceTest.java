@@ -2,7 +2,6 @@ package com.example.even.service;
 
 import com.example.even.domain.Food;
 import com.example.even.domain.Member;
-import com.example.even.domain.Order;
 import com.example.even.domain.OrderFood;
 import com.example.even.domain.Store;
 import com.example.even.dto.OrderDto.FoodInfo;
