@@ -17,7 +17,6 @@ public class StoreDto {
         private Double latitude;
         private Double longitude;
         private Integer zoomRatio;       //확대 비율
-//        private Integer storeType;
     }
 
     @Getter
@@ -37,8 +36,11 @@ public class StoreDto {
     @AllArgsConstructor
     public static class StoreGetResponse {
         private String storeName;
+        private double latitude;
+        private double longitude;
         private String multiUseContainerAvailable;
         private String detailInformation;
+        private String storeType;
         private List<FoodInfo> foodDtoList;
     }
 

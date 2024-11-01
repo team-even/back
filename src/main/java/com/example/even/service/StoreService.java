@@ -40,8 +40,9 @@ public class StoreService {
         StoreType[] values = StoreType.values();
         StoreType filter = StoreType.ALL;
         for (StoreType value : values) {
-            if(value.getCode() == storeType)
+            if (value.getCode() == storeType) {
                 filter = value;
+            }
         }
 
         return storeRepository.findAllByStoreType(filter);
@@ -53,27 +54,12 @@ public class StoreService {
         Double latitude = storeGetRequest.getLatitude();
         Double longitude = storeGetRequest.getLongitude();
         Integer zoomRatio = storeGetRequest.getZoomRatio();
-//        Integer storeType = storeGetRequest.getStoreType();
 
-        // 좌하단 mapBounds[0] ~ mapBounds[1] 우상단 mapBounds[2] ~ mapBounds[3]
         double[] mapBounds = GeometryUtils.getMapBounds(latitude, longitude, zoomRatio);
         List<Store> storeList = new ArrayList<>();
 
-//        StoreType[] values = StoreType.values();
-//        StoreType filter = StoreType.ALL;
-//        for (StoreType value : values) {
-//            if(value.getCode() == storeType)
-//                filter = value;
-//        }
-
-//        if(storeType == 0) {
-            storeList  = storeRepository.findStoresWithinBounds(mapBounds[0], mapBounds[1], mapBounds[2],
-                    mapBounds[3]);
-//        }
-//        else {
-//            storeList = storeRepository.findStoresWithinBoundsAndFilter(mapBounds[0], mapBounds[1], mapBounds[2],
-//                    mapBounds[3], filter);
-//        }
+        storeList = storeRepository.findStoresWithinBounds(mapBounds[0], mapBounds[1], mapBounds[2],
+                mapBounds[3]);
 
         List<StoreGetResponse> storeGetResponseList = new ArrayList<>();
         for (Store store : storeList) {

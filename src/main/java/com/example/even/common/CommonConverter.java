@@ -39,7 +39,10 @@ public class CommonConverter {
         return StoreDto.StoreGetResponse.builder()
                 .storeName(store.getStoreName())
                 .detailInformation(store.getDetailInformation())
+                .latitude(store.getLatitude())
+                .longitude(store.getLongitude())
                 .multiUseContainerAvailable(store.isHasMultiUseContainer() ? "다회용기 제공" : "다회용기 지참")
+                .storeType(store.getStoreType().name())
                 .foodDtoList(foodDtoList)
                 .build();
     }

@@ -9,7 +9,7 @@ public class GeometryUtils {
     private static final double EARTH_RADIUS = 6378137;
 
     public static double[] getMapBounds(double centerLat, double centerLon, int zoom) {
-        // Scale factor based on zoom level
+//         Scale factor based on zoom level
         double scale = 1 << zoom;
 
         // Calculate the span in degrees for the current zoom level
@@ -23,5 +23,7 @@ public class GeometryUtils {
         double upperRightLon = centerLon + halfSpanLonDegrees;
 
         return new double[]{lowerLeftLat, lowerLeftLon, upperRightLat, upperRightLon};
+
+//        return new double[]{centerLat - 2, centerLon - 2, centerLat + 2, centerLon + 2};
     }
 }
