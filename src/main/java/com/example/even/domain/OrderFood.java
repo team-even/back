@@ -1,16 +1,14 @@
 package com.example.even.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Entity
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderFood {
 
     @Id
@@ -18,10 +16,10 @@ public class OrderFood {
     private Long orderId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "order_id")
-    private Order order;
+    @JoinColumn(name = "orders_id")
+    private Orders orders;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "food_id")
+    @JoinColumn(name = "food_id")
     private Food food;
 }
