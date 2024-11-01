@@ -1,3 +1,6 @@
+## notion
+https://www.notion.so/2-1312f55997ef8055bf64fd742bcc5ee5
+
 ## 기술 스택 
 - SptringBoot 3.3.5
 - Spring Data JPA
