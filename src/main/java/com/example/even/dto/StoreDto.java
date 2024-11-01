@@ -14,9 +14,21 @@ public class StoreDto {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class StoreGetRequest {
-        private Float latitude;
-        private Float longitude;
-        private Float magnificationRatio;       //확대 비율
+        private Double latitude;
+        private Double longitude;
+        private Integer zoomRatio;       //확대 비율
+//        private Integer storeType;
+    }
+
+    @Getter
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class StoreResponse {
+        private String storeName;
+        private String detailInformation;
+        private String storeImageUrl;
+        private List<FoodInfo> foodInfoList;
     }
 
     @Getter

@@ -14,8 +14,8 @@ public class StoreRequestDTO {
     public static class Store {
         private Long storeId;
         private String name;
-        private Float latitude;
-        private Float longitude;
+        private Double latitude;
+        private Double longitude;
         private String detailInformation;
         private String storeImageUrl;
     }

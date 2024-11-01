@@ -37,9 +37,9 @@ public class Store {
 
     private String storeName;
 
-    private Float latitude;
+    private Double latitude;
 
-    private Float longitude;
+    private Double longitude;
 
     private String detailInformation;
 
@@ -49,7 +49,7 @@ public class Store {
     private boolean hasMultiUseContainer = false;       // t = 다회용기 제공 업체
 
     @Builder.Default
-    private StoreCategory storeCategory = StoreCategory.NORMAL;
+    private StoreType storeType = StoreType.NORMAL;
 
     @Builder.Default
     @OneToMany(mappedBy = "store", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

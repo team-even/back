@@ -84,6 +84,7 @@ public class CommonConverter {
         return OrderHistory.builder()
                 .orderId(order.getOrderId())
                 .orderCategory(order.getOrderCategory().getName())
+                .storeName(order.getStore().getStoreName())
                 .foodInfoHistoryList(foodInfoHistoryList)
                 .build();
     }
